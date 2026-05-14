@@ -37,6 +37,26 @@ export const metadata: Metadata = {
     "A computational scientific instrument exploring compressibility, prediction horizons, and emergent symbolic laws.",
 };
 
+const stripExtensionAttributes = `
+(() => {
+  const clean = (root) => {
+    const nodes = [document.documentElement, document.body, ...document.querySelectorAll("[bis_skin_checked], [bis_register]")];
+    for (const node of nodes) {
+      if (!node) continue;
+      for (const attr of [...node.attributes]) {
+        if (attr.name === "bis_skin_checked" || attr.name === "bis_register" || attr.name.startsWith("__processed_")) {
+          node.removeAttribute(attr.name);
+        }
+      }
+    }
+  };
+  clean();
+  const observer = new MutationObserver(clean);
+  observer.observe(document.documentElement, { attributes: true, subtree: true });
+  window.addEventListener("load", () => window.setTimeout(() => observer.disconnect(), 1000), { once: true });
+})();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -53,6 +73,7 @@ export default function RootLayout({
         suppressHydrationWarning
         className="flex min-h-[100dvh] flex-col font-[family-name:var(--font-inter),ui-sans-serif,system-ui]"
       >
+        <script dangerouslySetInnerHTML={{ __html: stripExtensionAttributes }} />
         <NavBar />
         <main className="flex-1">
           <PageTransitions>{children}</PageTransitions>
