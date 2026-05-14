@@ -45,6 +45,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${syne.variable} ${cormorant.variable} ${inter.variable} ${jetBrainsMono.variable} h-full scroll-smooth antialiased`}
     >
       <body className="flex min-h-[100dvh] flex-col font-[family-name:var(--font-inter),ui-sans-serif,system-ui]">
