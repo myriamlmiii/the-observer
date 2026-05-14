@@ -46,9 +46,13 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
+      suppressHydrationWarning
       className={`${syne.variable} ${cormorant.variable} ${inter.variable} ${jetBrainsMono.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="flex min-h-[100dvh] flex-col font-[family-name:var(--font-inter),ui-sans-serif,system-ui]">
+      <body
+        suppressHydrationWarning
+        className="flex min-h-[100dvh] flex-col font-[family-name:var(--font-inter),ui-sans-serif,system-ui]"
+      >
         <NavBar />
         <main className="flex-1">
           <PageTransitions>{children}</PageTransitions>
