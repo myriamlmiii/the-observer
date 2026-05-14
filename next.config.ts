@@ -1,12 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  turbopack: {
-    root: __dirname,
-  },
-  experimental: {
-    turbopackFileSystemCacheForDev: false,
-  },
+  output: "export",
 };
 
 export default nextConfig;
