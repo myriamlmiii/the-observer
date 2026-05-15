@@ -1,6 +1,8 @@
 # THE OBSERVER
 
 > Science begins when reality becomes compressible.
+>
+> https://the-observer.pages.dev
 
 A cinematic computational science project where a synthetic observer attempts to rediscover the laws of reality through entropy analysis, causal inference, prediction dynamics, and symbolic structure inside simulated universes.
 
